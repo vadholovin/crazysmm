@@ -13,7 +13,17 @@ jQuery(document).ready(function($){
     items: 1,
     nav: true,
     navText: [],
-    dots: false
+    dots: false,
+    responsive: {
+      320: {
+        dots: true,
+        nav: false
+      },
+      500: {
+        dots: false,
+        nav: true
+      },
+    }
   });
 });
 
@@ -25,11 +35,39 @@ jQuery(document).ready(function($){
   var owl  = $("#sliderFront");
 
   owl.owlCarousel({
-    items: 5,
+    items: 1,
     nav: true,
     navText: [],
     dots: false,
-    margin: 36
+    margin: 30,
+    responsive: {
+      320: {
+        dots: true,
+        nav: false,
+        margin: 0,
+      },
+      400: {
+        dots: true,
+        nav: false,
+        items: 2,
+        margin: 20,
+      },
+      500: {
+        dots: false,
+        nav: true,
+        items: 2
+      },
+      576: {
+        items: 3
+      },
+      768: {
+        items: 4
+      },
+      992: {
+        items: 5,
+        margin: 36
+      }
+    }
   });
 });
 
@@ -62,11 +100,27 @@ jQuery(document).ready(function($){
   var owl  = $("#sliderPrice");
 
   owl.owlCarousel({
-    items: 3,
+    items: 1,
     nav: true,
     navText: [],
     dots: false,
-    margin: 28
+    margin: 28,
+    responsive: {
+      320: {
+        dots: true,
+        nav: false
+      },
+      500: {
+        dots: false,
+        nav: true
+      },
+      768: {
+        items: 2
+      },
+      992: {
+        items: 3
+      }
+    }
   });
 });
 

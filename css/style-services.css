@@ -360,6 +360,7 @@ img {
 .page-header {
   background-image: linear-gradient(to top, rgb(14,19,27) 0%, rgb(35,40,49) 100%);
   box-shadow: 0px 5px 13.95px 1.05px rgba(0, 0, 0, 0.2);
+  overflow-x: hidden;
 }
 
 .services-nav {
@@ -601,7 +602,7 @@ img {
 
 .mobile-nav {
   visibility: hidden;
-  position: absolute;
+  position: fixed;
   top: -240px;
   right: -190px;
   background: #232831;
@@ -757,26 +758,51 @@ img {
 
 .smm-desc {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
-  font-size: 1.25rem;
+  font-size: 1rem;
   line-height: 1.7;
 }
 
-
+@media only screen and (min-width: 768px) {
+  .smm-desc {
+    font-size: 1.25rem;
+  }
+}
 
 .smm-desc p:not(:last-child) {
   margin-bottom: 1rem;
 }
 
+.page-heading--img {
+  order: -1;
+}
+
+@media only screen and (min-width: 992px) {
+  .page-heading--img {
+    order: 0;
+  }
+}
+
 .page-heading__img {
-  /* text-align: right; */
   position: relative;
 }
 
 .page-heading__img img {
-  position: absolute;
-  top: 0;
-  left: 30%;
-  transform: translate(0, 0);
+  max-width: 120px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+}
+
+@media only screen and (min-width: 992px) {
+  .page-heading__img img {
+    max-width: 100%;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    left: 30%;
+    transform: translate(0, 0);
+  }
 }
 
 .h2--service {
@@ -836,9 +862,30 @@ img {
   opacity: 0.9;
 }
 
-.service-slider--price {
-  padding-left: 48px;
-  padding-right: 48px;
+.service-slider .owl-dots {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.service-slider .owl-dot {
+  background: #fff !important;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin: 4px;
+  opacity: 0.5;
+  transition: opacity 0.15s ease-out;
+}
+
+.service-slider .owl-dot:hover,
+.service-slider .owl-dot:focus {
+  opacity: 1;
+  outline: none;
+}
+
+.service-slider .owl-dot.active {
+  background: #7b133c !important;
+  opacity: 1;
 }
 
 
@@ -849,7 +896,7 @@ img {
 .smm-sliders {
   position: relative;
   margin-bottom: 85px;
-  height: 370px;
+  /* height: 370px; */
 }
 
 .service-slider--back {
@@ -858,12 +905,17 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  padding-left: 65px;
-  padding-right: 65px;
   opacity: 0;
   z-index: -10;
   visibility: hidden;
   transition: opacity 0.3s ease-out;
+}
+
+@media only screen and (min-width: 500px) {
+  .service-slider--back {
+    padding-left: 65px;
+    padding-right: 65px;
+  }
 }
 
 .service-slider--back.is-front {
@@ -886,9 +938,17 @@ img {
 }
 
 .backslide__img {
-  margin-right: 20px;
-  max-width: 145px;
+  max-width: 100px;
   width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (min-width: 768px) {
+  .backslide__img {
+    max-width: 145px;
+    margin-right: 20px;
+  }
 }
 
 .backslide__img img {
@@ -896,19 +956,33 @@ img {
 }
 
 .backslide__text {
-  padding-left: 30px;
+  margin-top: 30px;
+}
+
+@media only screen and (min-width: 992px) {
+  .backslide__text {
+    margin-top: 0;
+    padding-left: 30px;
+  }
 }
 
 .backslide__text-1 {
   max-width: 300px;
   width: 100%;
-  padding-right: 30px;
-  border-right: 1px solid #dcdcdc;
+}
+
+@media only screen and (min-width: 992px) {
+  .backslide__text-1 {
+    padding-right: 30px;
+    border-right: 1px solid #dcdcdc;
+  }
 }
 
 .backslide__text-2 {
+  flex: 1;
   max-width: 464px;
   width: 100%;
+  flex-shrink: 1;
 }
 
 .backslide__title {
@@ -940,8 +1014,15 @@ img {
 }
 
 .service-slider--front {
-  padding-left: 75px;
-  padding-right: 75px;
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
+@media only screen and (min-width: 500px) {
+  .service-slider--front {
+    padding-left: 75px;
+    padding-right: 75px;
+  }
 }
 
 .frontSlide {
@@ -974,7 +1055,6 @@ img {
 
 .simplebar-track {
   width: 9px;
-  /* background-color: rgba(123, 19, 60, 0.1); */
 }
 
 .simplebar-scrollbar {
@@ -993,6 +1073,13 @@ img {
 /*------------------------------------------*/
 /*  #PRICE-SLIDER
 /*------------------------------------------*/
+
+@media only screen and (min-width: 500px) {
+  .service-slider--price {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
 
 .price-slide {
   border: 4px solid #7b133c;
@@ -1026,7 +1113,6 @@ img {
 }
 
 .price-slide__scroll {
-  /* padding: 0 34px; */
   height: 205px;
   overflow: hidden;
 }
@@ -1066,6 +1152,7 @@ img {
   font-family: 'Oswald', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 0.9375rem;
   line-height: 1;
+  margin-bottom: 6px;
 }
 
 .price-slide__estimate-i:first-child {
