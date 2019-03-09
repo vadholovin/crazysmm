@@ -41,7 +41,7 @@ jQuery(document).ready(function($){
   $('.frontSlide').click(function (e) {
     e.preventDefault();
     var index = $(this).parent().index();
-    $('.service-slider--back').trigger('to.owl.carousel', [index, 500, true]);
+    $('.service-slider--back').trigger('to.owl.carousel', [index, 10, true]);
     $('.service-slider--front').addClass('is-back');
     $('.service-slider--back').addClass('is-front');
   });
@@ -68,4 +68,37 @@ jQuery(document).ready(function($){
     dots: false,
     margin: 28
   });
+});
+
+
+/*----------------------------------------------------*/
+/*  #MOVING IMAGE ON HOVER
+/*----------------------------------------------------*/
+
+jQuery(document).ready(function($){
+
+  $('.page-heading__img img').mousemove(function(e){
+    var x = -(e.pageX + this.offsetLeft) / 30;
+    var y = -(e.pageY + this.offsetTop) / 30;
+    $(this).css('transform', 'translate(' + x + 'px, ' + y + 'px)');
+  });
+
+});
+
+/*----------------------------------------------------*/
+/*  #SHOW MENU
+/*----------------------------------------------------*/
+
+jQuery(document).ready(function($){
+
+  $('#hamburgerHolder').click(function (e) { 
+    e.preventDefault();
+    $('.mobile-nav').addClass('is-active');
+  });
+
+  $('.close-menu').click(function (e) { 
+    e.preventDefault();
+    $('.mobile-nav').removeClass('is-active');
+  });
+
 });
