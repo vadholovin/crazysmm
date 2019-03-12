@@ -812,7 +812,13 @@ img {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-weight: 300;
   line-height: 1.7;
-  font-size: 1.25rem;
+  font-size: 1rem;
+}
+
+@media only screen and (min-width: 768px) {
+  .smm-content {
+    font-size: 1.25rem;
+  }
 }
 
 .smm-content > *:not(h2) {
@@ -866,9 +872,24 @@ img {
   position: relative;
   flex-grow: 0;
   flex-shrink: 0;
-  flex-basis: 300px;
-  max-width: 300px;
+  width: 100%;
   margin-bottom: 60px;
+}
+
+@media only screen and (min-width: 768px) {
+  .smm-order__item {
+    padding-right: 30px;
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .smm-order__item {
+    padding: 0;
+    flex-basis: 300px;
+    max-width: 300px;
+  }
 }
 
 .smm-order__item:nth-child(2)::before,
@@ -949,9 +970,23 @@ img {
 .button--smm {
   display: inline-block;
   font-family: 'Oswald', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 1.875rem;
+  font-size: 1.25rem;
   text-transform: uppercase;
-  padding: 1em 4.5em;
+  padding: 1em 2.5em;
+}
+
+@media only screen and (min-width: 768px) {
+  .button--smm {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .button--smm {
+    padding-left: 4.5em;
+    padding-right: 4.5em;
+    font-size: 1.875rem;
+  }
 }
 
 /*------------------------------------------*/
